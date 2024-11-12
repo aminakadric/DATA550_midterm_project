@@ -14,3 +14,53 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```{r, load-package, echo = FALSE}
 library(kableExtra)
 ```
+
+```{r, here-i-am, include = FALSE}
+here::i_am("report.Rmd")
+
+data <- readRDS(
+  file = here::here("data/data_clean_conti.rds")
+)
+```
+
+# Descriptive Analysis
+
+## Continuous Variables
+
+### agemons
+#### Child Age in Months at Baseline
+```{r, plot-agemons}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/plot_agemons.png")
+)
+
+knitr::include_graphics(
+  here::here("output/plot_agemons_out.png")
+)
+```
+
+### height
+#### Child Height/Length (cm) at Baseline
+```{r, plot-height}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/plot_height.png")
+)
+```
+
+### weight1
+#### Child Weight at Stabilization (kg)
+```{r, plot-weight1}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/plot_weight1.png")
+)
+
+knitr::include_graphics(
+  here::here("output/plot_weight1_out.png")
+)
+```
