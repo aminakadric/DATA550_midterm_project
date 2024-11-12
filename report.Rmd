@@ -23,6 +23,13 @@ data <- readRDS(
 )
 ```
 
+```{r, here-i-am, include = FALSE}
+here::i_am("report.Rmd")
+
+data_cat <- readRDS(
+  file = here::here("data/data_clean_cat.rds")
+)
+```
 # Descriptive Analysis
 
 ## Continuous Variables
@@ -62,5 +69,41 @@ knitr::include_graphics(
 
 knitr::include_graphics(
   here::here("output/plot_weight1_out.png")
+)
+```
+
+
+
+
+## Categorical Variables
+
+### Randomization Arm
+#### Distribution of Randomization Arm in the Cohort
+```{r, plot-arm}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/plot_arms.png")
+)
+```
+
+### Sex
+#### Cohort Composition by Sex
+```{r, plot-sex}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/plot_sex.png")
+)
+```
+
+
+### Breastfeeding
+#### Breastfeeding Status
+```{r, plot-bfeeding}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/plot_bfeeding.png")
 )
 ```
