@@ -23,7 +23,7 @@ data <- readRDS(
 )
 ```
 
-```{r, here-i-am, include = FALSE}
+```{r, here-i-am-cat, include = FALSE}
 here::i_am("report.Rmd")
 
 data_cat <- readRDS(
