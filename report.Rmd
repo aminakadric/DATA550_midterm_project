@@ -30,6 +30,16 @@ data_cat <- readRDS(
   file = here::here("data/data_clean_cat.rds")
 )
 ```
+
+```{r, merged-clean-data, include = FALSE}
+here::i_am("report.Rmd")
+
+data_merged <- readRDS(
+  file = here::here("data/data_clean_merged.rds")
+)
+```
+
+
 # Descriptive Analysis
 
 ## Continuous Variables
@@ -107,3 +117,26 @@ knitr::include_graphics(
   here::here("output/plot_bfeeding.png")
 )
 ```
+
+## Table 1
+
+
+
+# Regression Analysis 
+## Graphical Analysis 
+```{r, boxplots}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/boxplots.png")
+)
+```
+
+## Primary Model
+
+
+## Secondary Model 
+
+
+
+
