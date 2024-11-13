@@ -147,7 +147,7 @@ In the primary analysis, we conducted linear regression, as the outcome variable
 
 ```{r, primary-model}
 both_regression_tables <- readRDS(
-  file = here::here("output", "both_regression_tables")
+  file = here::here("output/both_regression_tables.rds")
 )
 both_regression_tables$primary
 ```

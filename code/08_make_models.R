@@ -52,5 +52,5 @@ both_regression_tables <- list(
 
 saveRDS(
   both_regression_tables,
-  file = here::here("output", "both_regression_tables")
+  file = here::here("output", "both_regression_tables.rds")
 )
