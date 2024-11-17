@@ -47,6 +47,10 @@ output/boxplots.png: data/data_clean_merged.rds
 
 output/both_regression_tables.rds: data/data_clean_merged.rds 
 	Rscript code/08_make_models.R
+	
+# Descriptive Statistics
+output/descriptive_table.rds: data/data_clean_merged.rds
+	Rscript code/09_descriptive_table.R
 
 .PHONY: descriptive_analysis_conti
 descriptive_analysis_conti: output/plot_agemons.png \
