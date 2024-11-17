@@ -162,6 +162,15 @@ means the weight at stabilization was greater than `r config_list$cutpoint` kg.
 both_regression_tables$secondary
 ```
 
+## Descriptive Statistics Table 
 
+This is a descriptive table of patient characteristics overall and stratified based on milk formula type.
+
+```{r, descriptive-statistics}
+table_stat <- readRDS(
+  file = here::here("output/descriptive_table.rds")
+)
+table_stat
+```
 
 
