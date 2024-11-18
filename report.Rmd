@@ -6,6 +6,7 @@ output:
   html_document:
     toc: true
 ---
+
 ```{r, read-config, include=FALSE}
 config_list <- config::get()
 ```
@@ -42,13 +43,13 @@ data_merged <- readRDS(
 )
 ```
 
-
 # Descriptive Analysis
 
 ## Continuous Variables
 
 ### agemons
 #### Child Age in Months at Baseline
+
 ```{r, plot-agemons}
 #| fig.align = "center",
 #| out.width = "600px"
@@ -63,6 +64,7 @@ knitr::include_graphics(
 
 ### height
 #### Child Height/Length (cm) at Baseline
+
 ```{r, plot-height}
 #| fig.align = "center",
 #| out.width = "600px"
@@ -73,6 +75,7 @@ knitr::include_graphics(
 
 ### weight1
 #### Child Weight at Stabilization (kg)
+
 ```{r, plot-weight1}
 #| fig.align = "center",
 #| out.width = "600px"
@@ -85,13 +88,11 @@ knitr::include_graphics(
 )
 ```
 
-
-
-
 ## Categorical Variables
 
 ### arm
 #### Distribution of Randomization Arm in the Cohort
+
 ```{r, plot-arm}
 #| fig.align = "center",
 #| out.width = "600px"
@@ -102,6 +103,7 @@ knitr::include_graphics(
 
 ### sex
 #### Cohort Composition by Sex
+
 ```{r, plot-sex}
 #| fig.align = "center",
 #| out.width = "600px"
@@ -110,9 +112,9 @@ knitr::include_graphics(
 )
 ```
 
-
 ### bfeeding
 #### Breastfeeding Status
+
 ```{r, plot-bfeeding}
 #| fig.align = "center",
 #| out.width = "600px"
@@ -122,14 +124,22 @@ knitr::include_graphics(
 ```
 
 ## Tabular Analysis
+
 ### Table 1
 
+This is a descriptive table of patient characteristics overall and stratified based on milk formula type.
 
+```{r, descriptive-statistics}
+table_stat <- readRDS(
+  file = here::here("output/descriptive_table.rds")
+)
+table_stat
+```
 
+# Regression Analysis
 
-
-# Regression Analysis 
 ## Graphical Analysis 
+
 Our research question: Among children who survive to stabilization, how does the randomization arm impact weight, controlling for age, sex, height, and breastfeeding?
 
 ```{r, boxplots}
@@ -143,6 +153,7 @@ knitr::include_graphics(
 These boxplots depict the distribution of weight at stabilization by randomization arm. We see right-skewed distributions for both randomization arms due to the presence of outliers on the high end. 
 
 ## Primary Model - Linear Regression 
+
 In the primary analysis, we conducted linear regression, as the outcome variable (weight at stabilization) is continuous. Our exposure of interest is randomization arm. We controlled for age, sex, height, and breastfeeding status. 
 
 ```{r, primary-model}
@@ -152,7 +163,6 @@ both_regression_tables <- readRDS(
 both_regression_tables$primary
 ```
 
-
 ## Secondary Model - Logistic Regression
 
 In the secondary analysis, we generated a binary outcome where level 1 of the outcome
@@ -161,16 +171,4 @@ means the weight at stabilization was greater than `r config_list$cutpoint` kg.
 ```{r, secondary-model}
 both_regression_tables$secondary
 ```
-
-## Descriptive Statistics Table 
-
-This is a descriptive table of patient characteristics overall and stratified based on milk formula type.
-
-```{r, descriptive-statistics}
-table_stat <- readRDS(
-  file = here::here("output/descriptive_table.rds")
-)
-table_stat
-```
-
 
