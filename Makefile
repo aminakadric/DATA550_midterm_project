@@ -41,14 +41,14 @@ output/plot_sex.png: code/04_make_plot_cat.R data/data_clean_cat.rds
 output/plot_bfeeding.png: code/04_make_plot_cat.R data/data_clean_cat.rds
 	Rscript code/04_make_plot_cat.R
 
-# regression Analysis
+# regression analysis
 output/boxplots.png: data/data_clean_merged.rds
 	Rscript 06_make_boxplots.R
 
 output/both_regression_tables.rds: data/data_clean_merged.rds 
 	Rscript code/08_make_models.R
 	
-# Descriptive Statistics
+# descriptive statistics
 output/descriptive_table.rds: data/data_clean_merged.rds
 	Rscript code/09_descriptive_table.R
 
@@ -70,3 +70,8 @@ regression_analysis: output/boxplots.png output/both_regression_tables.rds
 .PHONY: clean
 clean:
 	rm -f data/*.rds output/*.png output/*.rds report.html
+
+# restore a package library
+.PHONY: install
+install:
+	Rscript -e "renv::restore(prompt = FALSE)"
