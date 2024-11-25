@@ -43,7 +43,7 @@ output/plot_bfeeding.png: code/04_make_plot_cat.R data/data_clean_cat.rds
 
 # regression analysis
 output/boxplots.png: data/data_clean_merged.rds
-	Rscript 06_make_boxplots.R
+	Rscript code/06_make_boxplots.R
 
 output/both_regression_tables.rds: data/data_clean_merged.rds 
 	Rscript code/08_make_models.R
